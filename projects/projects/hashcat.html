@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hash Cracking with Hashcat – Manjeet Singh</title>
+    <meta charset="UTF-8">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 900px; 
+            margin: auto; 
+            padding: 40px; 
+            line-height: 1.6; 
+        }
+        h1, h2, h3 { text-align: center; }
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Hash Cracking with Hashcat</h1>
+<h3>Cybersecurity Project by Manjeet Singh</h3>
+
+<div class="section">
+    <h2>Project Summary</h2>
+    <p>
+        In this project, I used Hashcat to crack a password hash. The goal was to understand how weak passwords 
+        can be broken using wordlists and GPU/CPU power. This project helped me see why strong passwords are important 
+        in cybersecurity.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Tools Used</h2>
+    <ul>
+        <li>Hashcat</li>
+        <li>Linux Terminal (Kali Linux)</li>
+        <li>rockyou.txt wordlist</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Steps and Commands</h2>
+    <p><b>1. Create a test password hash:</b></p>
+    <code>echo -n "Manjeet123" | md5sum</code>
+
+    <p><b>2. Save the hash inside a file:</b></p>
+    <code>echo "5c768a66e1d540b7350a5f0c1f7bcc1f" > hash.txt</code>
+
+    <p><b>3. Run Hashcat to crack the hash:</b></p>
+    <code>hashcat -m 0 hash.txt /usr/share/wordlists/rockyou.txt</code>
+
+    <p><b>4. Show the cracked password:</b></p>
+    <code>hashcat -m 0 hash.txt --show</code>
+</div>
+
+<div class="section">
+    <h2>What I Learned</h2>
+    <p>
+        I learned how hashes work, how password cracking tools operate, and why companies use 
+        strong hashing algorithms. This project helped me understand the attacker's side and why security 
+        teams must enforce strong password rules.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Screenshots</h2>
+    <p>I will add screenshots here after running Hashcat.</p>
+</div>
+
+</body>
+</html>
