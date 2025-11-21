@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Steganography Analysis with Steghide – Manjeet Singh</title>
+    <meta charset="UTF-8">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 900px; 
+            margin: auto; 
+            padding: 40px; 
+            line-height: 1.6; 
+        }
+        h1, h2, h3 { text-align: center; }
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        code {
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Steganography Analysis (Steghide)</h1>
+<h3>Cybersecurity Project by Manjeet Singh</h3>
+
+<div class="section">
+    <h2>Project Summary</h2>
+    <p>
+        In this project, I analyzed an image to find hidden data using steganography tools. 
+        I used <b>Steghide</b> to extract secret information from a JPEG file. 
+        This helped me understand how attackers may hide data and how digital forensics teams investigate files.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Tools Used</h2>
+    <ul>
+        <li>Steghide</li>
+        <li>Linux Terminal (Kali Linux)</li>
+        <li>strings command</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Steps Performed</h2>
+    
+    <p><b>1. Used <code>strings</code> to scan the image for clues:</b></p>
+    <code>strings GumpyCat.jpeg | less</code>
+
+    <p><b>2. Found the hidden password near the bottom of the output.</b></p>
+
+    <p><b>3. Extracted the hidden file using Steghide:</b></p>
+    <code>steghide extract -sf GumpyCat.jpeg</code>
+
+    <p><b>4. Entered the password to reveal the secret text file.</b></p>
+
+    <p><b>5. Opened the extracted file to view the hidden message:</b></p>
+    <code>cat secret.txt</code>
+</div>
+
+<div class="section">
+    <h2>What I Learned</h2>
+    <p>
+        I learned how steganography can hide data inside images and how forensic analysts recover hidden information. 
+        This project taught me how attackers may hide passwords or secret files inside media. 
+        I also learned to use Linux tools such as <code>strings</code> and <code>steghide</code>.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Screenshots</h2>
+    <p>I will add my screenshot of Steghide extraction and strings output here.</p>
+</div>
+
+</body>
+</html>
