@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MITRE ATT&CK Technique Simulation – Manjeet Singh</title>
+    <meta charset="UTF-8">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 900px; 
+            margin: auto; 
+            padding: 40px; 
+            line-height: 1.6; 
+        }
+        h1, h2, h3 { text-align: center; }
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        code {
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>MITRE ATT&CK Technique Simulation</h1>
+<h3>Cybersecurity Project by Manjeet Singh</h3>
+
+<div class="section">
+    <h2>Project Summary</h2>
+    <p>
+        In this project, I simulated real attacker techniques by following the MITRE ATT&CK framework. 
+        I used simple and safe commands to understand how attackers gather information, 
+        move in a system, and execute actions. Then I mapped each step to a MITRE technique ID.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Framework Used</h2>
+    <ul>
+        <li>MITRE ATT&CK (Enterprise Matrix)</li>
+        <li>Linux Terminal</li>
+        <li>Windows Command Prompt / PowerShell</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Techniques Simulated</h2>
+
+    <h3>1. Reconnaissance – T1082 (System Information Discovery)</h3>
+    <p>Checked system info:</p>
+    <code>uname -a</code><br>
+    <code>systeminfo</code>
+
+    <h3>2. Credential Access – T1110 (Brute Force – Safe Example)</h3>
+    <p>Simulated a safe brute-force pattern using failed login attempts:</p>
+    <code>ssh wronguser@localhost</code>
+
+    <h3>3. Discovery – T1083 (File and Directory Discovery)</h3>
+    <p>Listed system directories:</p>
+    <code>ls -la /etc</code>
+
+    <h3>4. Execution – T1059 (Command-Line Interface)</h3>
+    <p>Used standard command execution:</p>
+    <code>bash -c "echo Simulation Test"</code>
+
+    <h3>5. Persistence – T1037 (Login Script Modification)</h3>
+    <p>Viewed login scripts (no changes made):</p>
+    <code>cat ~/.bashrc</code>
+
+    <h3>6. Defense Evasion – T1070 (Clear Command History – SAFE, NO EXECUTION)</h3>
+    <p>I studied this technique but did not execute history clearing.</p>
+</div>
+
+<div class="section">
+    <h2>What I Learned</h2>
+    <p>
+        I learned how attackers think and how cybersecurity teams use MITRE ATT&CK 
+        to track hacker behavior. I also learned how each command maps to a specific 
+        attack technique, which is extremely useful for SOC analysts and blue team work.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Screenshots</h2>
+    <p>I will add screenshots of my commands and MITRE mapping here.</p>
+</div>
+
+</body>
+</html>
