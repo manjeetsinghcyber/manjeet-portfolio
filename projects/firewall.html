@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Firewall Rules & Traffic Filtering – Manjeet Singh</title>
+    <meta charset="UTF-8">
+    <style>
+        body { 
+            font-family: Arial,sans-serif;
+            max-width: 900px;
+            margin: auto;
+            padding: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 { text-align:center; }
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            border:1px solid #ddd;
+            border-radius:8px;
+            background:#fafafa;
+        }
+        code {
+            background:#eee;
+            padding:3px 6px;
+            border-radius:4px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Firewall Rules & Traffic Filtering</h1>
+<h3>Cybersecurity Project by Manjeet Singh</h3>
+
+<div class="section">
+    <h2>Project Summary</h2>
+    <p>
+        In this project, I configured basic firewall rules using Linux iptables 
+        and reviewed how pfSense handles rules. I learned how traffic is allowed or blocked, 
+        how ports work, and how security teams protect a network by creating clear rules.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Tools Used</h2>
+    <ul>
+        <li>Kali Linux / Ubuntu</li>
+        <li>iptables</li>
+        <li>pfSense (for rule examples)</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Linux iptables Rules</h2>
+
+    <p><b>1. List all firewall rules:</b></p>
+    <code>sudo iptables -L -v -n</code>
+
+    <p><b>2. Allow SSH (port 22):</b></p>
+    <code>sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT</code>
+
+    <p><b>3. Allow HTTP (port 80):</b></p>
+    <code>sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT</code>
+
+    <p><b>4. Allow HTTPS (port 443):</b></p>
+    <code>sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT</code>
+
+    <p><b>5. Allow ping (ICMP):</b></p>
+    <code>sudo iptables -A INPUT -p icmp -j ACCEPT</code>
+
+    <p><b>6. Block everything else:</b></p>
+    <code>sudo iptables -P INPUT DROP</code>
+
+    <p><b>7. Save rules (Debian/Ubuntu):</b></p>
+    <code>sudo netfilter-persistent save</code>
+</div>
+
+<div class="section">
+    <h2>pfSense Firewall Rules (Explained)</h2>
+    <ul>
+        <li>LAN → WAN allowed (default)</li>
+        <li>Blocked all inbound WAN traffic</li>
+        <li>Allowed DNS (53), HTTP(80), HTTPS(443)</li>
+        <li>Allowed ICMP Echo (for ping)</li>
+        <li>Enabled logging on all blocked traffic</li>
+    </ul>
+    <p>
+        pfSense rules work from top to bottom. The first match wins, so ordering 
+        rules correctly is very important.
+    </p>
+</div>
+
+<div class="section">
+    <h2>What I Learned</h2>
+    <p>
+        I learned how firewalls control network traffic using rules and policies. 
+        I also learned the difference between inbound and outbound rules, 
+        why block-all-allow-some is safer, and how to open specific ports for services. 
+        This project helped me understand real network security.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Screenshots</h2>
+    <p>
+        I will add screenshots of my iptables output and pfSense rule examples here.
+    </p>
+</div>
+
+</body>
+</html>
