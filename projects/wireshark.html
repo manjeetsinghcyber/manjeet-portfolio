@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wireshark Packet Capture & Analysis – Manjeet Singh</title>
+    <meta charset="UTF-8">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 900px; 
+            margin: auto; 
+            padding: 40px; 
+            line-height: 1.6; 
+        }
+        h1, h2, h3 { text-align: center; }
+        .section {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        code {
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Wireshark Packet Capture & Analysis</h1>
+<h3>Cybersecurity Project by Manjeet Singh</h3>
+
+<div class="section">
+    <h2>Project Summary</h2>
+    <p>
+        In this project, I used Wireshark to capture and analyze network traffic.
+        I learned how different protocols work, how network packets look, and how analysts 
+        detect suspicious behavior on a network.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Tools Used</h2>
+    <ul>
+        <li>Wireshark</li>
+        <li>Kali Linux / Windows</li>
+        <li>Packet filters</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Steps Performed</h2>
+
+    <p><b>1. Started a packet capture:</b></p>
+    <code>Open Wireshark → Select network interface → Start Capture</code>
+
+    <p><b>2. Applied filters to analyze specific traffic:</b></p>
+    <ul>
+        <li><code>http</code> – shows HTTP traffic</li>
+        <li><code>dns</code> – shows DNS queries</li>
+        <li><code>icmp</code> – shows ping packets</li>
+        <li><code>tcp.port == 80</code> – HTTP on port 80</li>
+    </ul>
+
+    <p><b>3. Analyzed packet details:</b></p>
+    <code>Frame → Ethernet → IP → TCP</code>
+
+    <p><b>4. Identified source/destination IPs and protocols.</b></p>
+
+    <p><b>5. Saved the capture as a .pcap file.</b></p>
+</div>
+
+<div class="section">
+    <h2>What I Learned</h2>
+    <p>
+        I learned how network packets are structured, how protocols communicate, 
+        how to filter traffic, and how analysts detect suspicious connections.
+        This project helped me understand real-world blue team work.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Screenshots</h2>
+    <p>I will add screenshots of my Wireshark capture here.</p>
+</div>
+
+</body>
+</html>
