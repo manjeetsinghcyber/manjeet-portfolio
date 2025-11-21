@@ -1,73 +1,159 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Manjeet Singh - Cybersecurity Portfolio</title>
+    <title>Manjeet Singh – Cybersecurity Portfolio</title>
     <meta charset="UTF-8">
     <style>
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            max-width: 900px;
-            margin: auto;
-            padding: 40px;
-            line-height: 1.6;
+            background: #0a0f1a;
+            color: #e6edf3;
         }
-        h1, h2, h3 {
+
+        /* Header / Hero Section */
+        header {
+            padding: 80px 20px;
             text-align: center;
+            background: linear-gradient(135deg, #0d1627, #0a2342);
+            border-bottom: 1px solid #1f2937;
         }
-        .section {
-            margin-top: 40px;
-            padding: 20px;
-            border: 1px solid #ddd;
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #61a3ff;
+        }
+        h3 {
+            font-size: 20px;
+            font-weight: normal;
+            color: #8bb7ff;
+        }
+        .tagline {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #b7cfff;
+            font-style: italic;
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 15px 10px;
             border-radius: 8px;
-            background: #fafafa;
+            background: #1e60d4;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
         }
-        ul {
-            margin-left: 20px;
+        .button:hover {
+            background: #2b7cff;
+            transform: translateY(-3px);
+        }
+
+        /* Section boxes */
+        .section {
+            max-width: 950px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #111826;
+            border-radius: 10px;
+            border: 1px solid #1e293b;
+        }
+
+        /* Project Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #0f172a;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #1e293b;
+            transition: 0.3s;
+        }
+        .card a {
+            text-decoration: none;
+            color: #61a3ff;
+            font-weight: bold;
+        }
+        .card:hover {
+            background: #16213b;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #8b9bb5;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
+<header>
     <h1>Manjeet Singh</h1>
-    <h3>Cybersecurity Student | Future Security Analyst</h3>
+    <h3>Cybersecurity Student • Future SOC Analyst</h3>
+    <div class="tagline">“Defending systems. Breaking vulnerabilities. Learning every day.”</div>
 
-    <div class="section">
-        <h2>About Me</h2>
-        <p>
-            I am a cybersecurity and information security student with strong hands-on experience in networking, Linux, 
-            firewalls, log analysis, and security tools. I study Computer & Information Technology with an Information Security 
-            focus at Purdue University Indianapolis. I also completed an Associate degree in Software Development from Ivy Tech.
-        </p>
+    <a href="#projects" class="button">View Projects</a>
+    <a href="#" class="button">Download Resume</a>
+</header>
 
-        <p>
-            I have over four years of experience at Amazon, working up to a Level 3 TOM associate. I manage yard operations, 
-            support drivers, follow safety rules, and help train new hires. Working in fast-paced environments has made me calm 
-            under pressure and a good problem solver.
-        </p>
+<div class="section">
+    <h2>About Me</h2>
+    <p>
+        I am a cybersecurity student focused on system defense, network security, 
+        and hands-on technical skills. I study Information Security at Purdue University Indianapolis, 
+        and I have completed real security projects involving Nmap, Wireshark, Hashcat, 
+        WordPress hardening, Linux firewalls, MITRE ATT&CK, and incident-style log analysis.
+    </p>
+    <p>
+        My goal is to become a SOC Analyst and continue improving my skills in threat detection, 
+        vulnerability assessment, and cybersecurity engineering.
+    </p>
+</div>
 
-        <p>
-            In school, I completed labs and projects including pfSense firewall setup, LAMP server setup, WordPress hardening, 
-            Linux server admin, network tools, log analysis, and cybersecurity exercises such as steganography, hashing, and 
-            MITRE ATT&CK work. My goal is to become a cybersecurity analyst and keep learning every day.
-        </p>
+<div class="section">
+    <h2>Skills</h2>
+    <ul>
+        <li>Linux (Ubuntu, Kali), Bash Commands</li>
+        <li>Nmap, Wireshark, Hashcat</li>
+        <li>pfSense, iptables</li>
+        <li>Python Cybersecurity Scripting</li>
+        <li>Vulnerability Scanning (Nessus / OpenVAS)</li>
+        <li>Web Server Hardening & Apache Security</li>
+        <li>Windows Event Logs & Linux Auth Logs</li>
+        <li>MITRE ATT&CK Mapping</li>
+    </ul>
+</div>
+
+<div class="section" id="projects">
+    <h2>Cybersecurity Projects</h2>
+    <div class="grid">
+
+        <div class="card"><a href="projects/nmap.html">Nmap Network Scanning</a></div>
+        <div class="card"><a href="projects/hashcat.html">Hashcat Password Cracking</a></div>
+        <div class="card"><a href="projects/steganalysis.html">Steganography (Steghide)</a></div>
+        <div class="card"><a href="projects/wireshark.html">Wireshark Packet Capture</a></div>
+        <div class="card"><a href="projects/webhardening.html">Web Server Hardening</a></div>
+        <div class="card"><a href="projects/loganalysis.html">Log Analysis</a></div>
+        <div class="card"><a href="projects/mitre.html">MITRE ATT&CK Simulation</a></div>
+        <div class="card"><a href="projects/vulnerability.html">Vulnerability Scanning</a></div>
+        <div class="card"><a href="projects/portscanner.html">Python Port Scanner Tool</a></div>
+        <div class="card"><a href="projects/firewall.html">Firewall Rules & Traffic Filtering</a></div>
+
     </div>
+</div>
 
-    <div class="section">
-        <h2>Projects</h2>
-        <ul>
-            <li><a href="projects/nmap.html">Nmap Network Scanning</a></li>
-            <li><a href="projects/hashcat.html">Hash Cracking with Hashcat</a></li>
-            <li><a href="projects/firewall.html">Firewall Rules and Traffic Filtering</a></li>
-            <li><a href="projects/steganalysis.html">Steganography Analysis (Steghide)</a></li>
-            <li><a href="projects/wireshark.html">Wireshark Packet Capture</a></li>
-            <li><a href="projects/webhardening.html">Web Server Hardening</a></li>
-            <li><a href="projects/loganalysis.html">Linux & Windows Log Analysis</a></li>
-            <li><a href="projects/mitre.html">MITRE ATT&CK Technique Simulation</a></li>
-            <li><a href="projects/vulnerability.html">Vulnerability Scanning</a></li>
-            <li><a href="projects/portscanner.html">Python Port Scanner Tool</a></li>
-        </ul>
-        <p>More projects coming soon.</p>
-    </div>
+<footer>
+    © 2025 Manjeet Singh — Cybersecurity Portfolio
+</footer>
 
 </body>
 </html>
