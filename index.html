@@ -1,159 +1,693 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Manjeet Singh – Cybersecurity Portfolio</title>
     <meta charset="UTF-8">
+    <title>Manjeet Singh – Cybersecurity Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        :root {
+            --bg-dark: #050814;
+            --bg-panel: #0b1020;
+            --bg-panel-soft: #0f172a;
+            --border: #1f2937;
+            --accent: #3b82f6;
+            --accent-soft: #60a5fa;
+            --accent-glow: rgba(59, 130, 246, 0.5);
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+            --danger: #f97373;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0a0f1a;
-            color: #e6edf3;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+            color: var(--text-main);
+            overflow-x: hidden;
         }
 
-        /* Header / Hero Section */
-        header {
-            padding: 80px 20px;
-            text-align: center;
-            background: linear-gradient(135deg, #0d1627, #0a2342);
-            border-bottom: 1px solid #1f2937;
+        /* NAVBAR */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            background: rgba(3, 7, 18, 0.85);
+            border-bottom: 1px solid var(--border);
         }
-        h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            color: #61a3ff;
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        h3 {
-            font-size: 20px;
-            font-weight: normal;
-            color: #8bb7ff;
-        }
-        .tagline {
-            margin-top: 15px;
+
+        .nav-logo {
+            font-weight: 700;
+            letter-spacing: 2px;
             font-size: 18px;
-            color: #b7cfff;
-            font-style: italic;
+            color: var(--accent-soft);
         }
 
-        /* Buttons */
-        .button {
-            display: inline-block;
-            padding: 12px 25px;
-            margin: 15px 10px;
-            border-radius: 8px;
-            background: #1e60d4;
-            color: white;
+        .nav-links a {
+            margin-left: 18px;
+            font-size: 14px;
             text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .button:hover {
-            background: #2b7cff;
-            transform: translateY(-3px);
+            color: var(--text-muted);
+            transition: 0.2s;
         }
 
-        /* Section boxes */
+        .nav-links a:hover {
+            color: var(--accent-soft);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 70px 18px 60px;
+        }
+
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+            gap: 30px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--accent-glow);
+            background: rgba(15, 23, 42, 0.8);
+            font-size: 12px;
+            color: var(--accent-soft);
+            margin-bottom: 12px;
+        }
+
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: #22c55e;
+            margin-right: 7px;
+        }
+
+        .hero-title {
+            font-size: 40px;
+            line-height: 1.1;
+            margin: 0 0 10px;
+            color: var(--accent-soft);
+            text-shadow: 0 0 25px var(--accent-glow);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin: 0 0 14px;
+        }
+
+        #typing {
+            min-height: 26px;
+            font-size: 16px;
+            font-style: italic;
+            color: var(--accent-soft);
+            margin-bottom: 18px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 22px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-soft);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--accent-soft);
+            border-color: var(--border);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent-soft);
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .hero-note {
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* HERO RIGHT (PROFILE) */
+        .hero-right {
+            text-align: center;
+        }
+
+        .profile-wrapper {
+            display: inline-block;
+            padding: 3px;
+            border-radius: 999px;
+            background: radial-gradient(circle, var(--accent-soft), transparent 60%);
+        }
+
+        .profile {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--border);
+            background: radial-gradient(circle at top, #1f2937, #020617);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            padding: 8px;
+            text-align: center;
+        }
+
+        .hero-right small {
+            display: block;
+            margin-top: 8px;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* SECTIONS */
         .section {
-            max-width: 950px;
-            margin: 40px auto;
-            padding: 30px;
-            background: #111826;
-            border-radius: 10px;
-            border: 1px solid #1e293b;
+            max-width: 1100px;
+            margin: 0 auto 30px;
+            padding: 0 18px;
         }
 
-        /* Project Grid */
+        .panel {
+            background: var(--bg-panel);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            padding: 24px 20px;
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.7);
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin: 0 0 14px;
+        }
+
+        .section-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+            gap: 22px;
+        }
+
+        /* LISTS & TAGS */
+        ul {
+            padding-left: 18px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: var(--bg-panel-soft);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        /* TOOLS GRID */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 14px;
+        }
+
+        .tool-box {
+            background: var(--bg-panel-soft);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-main);
+            box-shadow: 0 10px 24px rgba(2, 6, 23, 0.8);
+            transition: 0.25s;
+        }
+
+        .tool-box:hover {
+            border-color: var(--accent-soft);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(37, 99, 235, 0.45);
+        }
+
+        /* PROJECT GRID */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background: #0f172a;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #1e293b;
-            transition: 0.3s;
-        }
-        .card a {
-            text-decoration: none;
-            color: #61a3ff;
-            font-weight: bold;
-        }
-        .card:hover {
-            background: #16213b;
-            transform: translateY(-5px);
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 14px;
         }
 
-        /* Footer */
+        .card {
+            background: var(--bg-panel-soft);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            padding: 14px 14px 18px;
+            transition: 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(37, 99, 235, 0.18), transparent 60%);
+            opacity: 0;
+            transition: 0.25s;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-soft);
+            box-shadow: 0 16px 40px rgba(37, 99, 235, 0.4);
+        }
+
+        .card-title {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: var(--accent-soft);
+            font-weight: 600;
+        }
+
+        .card-tagline {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* CONTACT */
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 14px;
+        }
+
+        .contact-item {
+            background: var(--bg-panel-soft);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            padding: 12px 14px;
+            flex: 1 1 220px;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .contact-value a {
+            color: var(--accent-soft);
+            text-decoration: none;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        /* BACK TO TOP */
+        .back-to-top {
+            position: fixed;
+            right: 16px;
+            bottom: 18px;
+            width: 36px;
+            height: 36px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--accent-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.9);
+            transition: 0.25s;
+        }
+
+        .back-to-top:hover {
+            border-color: var(--accent-soft);
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
         footer {
             text-align: center;
-            padding: 40px;
-            color: #8b9bb5;
-            margin-top: 40px;
+            padding: 26px 18px 40px;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+            .hero-inner,
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 40px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .nav-links a {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Manjeet Singh</h1>
-    <h3>Cybersecurity Student • Future SOC Analyst</h3>
-    <div class="tagline">“Defending systems. Breaking vulnerabilities. Learning every day.”</div>
-
-    <a href="#projects" class="button">View Projects</a>
-    <a href="#" class="button">Download Resume</a>
-</header>
-
-<div class="section">
-    <h2>About Me</h2>
-    <p>
-        I am a cybersecurity student focused on system defense, network security, 
-        and hands-on technical skills. I study Information Security at Purdue University Indianapolis, 
-        and I have completed real security projects involving Nmap, Wireshark, Hashcat, 
-        WordPress hardening, Linux firewalls, MITRE ATT&CK, and incident-style log analysis.
-    </p>
-    <p>
-        My goal is to become a SOC Analyst and continue improving my skills in threat detection, 
-        vulnerability assessment, and cybersecurity engineering.
-    </p>
-</div>
-
-<div class="section">
-    <h2>Skills</h2>
-    <ul>
-        <li>Linux (Ubuntu, Kali), Bash Commands</li>
-        <li>Nmap, Wireshark, Hashcat</li>
-        <li>pfSense, iptables</li>
-        <li>Python Cybersecurity Scripting</li>
-        <li>Vulnerability Scanning (Nessus / OpenVAS)</li>
-        <li>Web Server Hardening & Apache Security</li>
-        <li>Windows Event Logs & Linux Auth Logs</li>
-        <li>MITRE ATT&CK Mapping</li>
-    </ul>
-</div>
-
-<div class="section" id="projects">
-    <h2>Cybersecurity Projects</h2>
-    <div class="grid">
-
-        <div class="card"><a href="projects/nmap.html">Nmap Network Scanning</a></div>
-        <div class="card"><a href="projects/hashcat.html">Hashcat Password Cracking</a></div>
-        <div class="card"><a href="projects/steganalysis.html">Steganography (Steghide)</a></div>
-        <div class="card"><a href="projects/wireshark.html">Wireshark Packet Capture</a></div>
-        <div class="card"><a href="projects/webhardening.html">Web Server Hardening</a></div>
-        <div class="card"><a href="projects/loganalysis.html">Log Analysis</a></div>
-        <div class="card"><a href="projects/mitre.html">MITRE ATT&CK Simulation</a></div>
-        <div class="card"><a href="projects/vulnerability.html">Vulnerability Scanning</a></div>
-        <div class="card"><a href="projects/portscanner.html">Python Port Scanner Tool</a></div>
-        <div class="card"><a href="projects/firewall.html">Firewall Rules & Traffic Filtering</a></div>
-
+<!-- NAVBAR -->
+<nav class="nav">
+    <div class="nav-inner">
+        <div class="nav-logo">MS | CYBERSECURITY</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#tools">Tools</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
     </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+    <div class="hero-inner">
+        <div>
+            <div class="badge">
+                <span class="badge-dot"></span>
+                Open to cybersecurity internships & SOC roles
+            </div>
+
+            <h1 class="hero-title">Manjeet Singh</h1>
+            <p class="hero-subtitle">Cybersecurity Student • Future SOC Analyst</p>
+
+            <div id="typing"></div>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Cybersecurity Projects</a>
+                <!-- When you upload resume.pdf to repo root, this will work -->
+                <a href="resume.pdf" class="btn btn-ghost">Download Resume</a>
+            </div>
+
+            <p class="hero-note">
+                This portfolio shows my hands-on work with Nmap, Wireshark, Hashcat, web hardening,
+                firewalls, log analysis, MITRE ATT&CK, vulnerability scanning, and Python security scripting.
+            </p>
+        </div>
+
+        <div class="hero-right">
+            <div class="profile-wrapper">
+                <div class="profile">
+                    Upload <b>profile.jpg</b> to repo root<br>and it will appear here.
+                </div>
+            </div>
+            <small>You can replace this with a professional photo later.</small>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT + SKILLS -->
+<section class="section" id="about">
+    <div class="panel">
+        <div class="two-col">
+            <div>
+                <h2 class="section-title">About Me</h2>
+                <p class="section-sub">
+                    Cybersecurity student focused on blue team skills, system defense, and real tools used in SOC work.
+                </p>
+                <p>
+                    I study Information Security at Purdue University Indianapolis. I have hands-on experience with
+                    Linux, networking, firewalls, log analysis, vulnerability scanning, steganography, and security tools.
+                    I like to learn by doing real labs and projects, not just reading theory.
+                </p>
+                <p>
+                    My goal is to work as a SOC Analyst or Security Engineer and keep improving in threat detection,
+                    incident response, and ethical hacking.
+                </p>
+            </div>
+            <div id="skills">
+                <h2 class="section-title">Key Skills</h2>
+                <ul>
+                    <li>Linux (Ubuntu, Kali) – command line, file system, basic hardening</li>
+                    <li>Network scanning with Nmap and custom port scanners</li>
+                    <li>Packet analysis with Wireshark</li>
+                    <li>Password attack concepts with Hashcat</li>
+                    <li>pfSense & iptables firewall rule configuration</li>
+                    <li>Vulnerability scanning and report reading</li>
+                    <li>Web server hardening and WordPress security basics</li>
+                    <li>Log analysis (Windows Event Logs, Linux auth.log)</li>
+                    <li>MITRE ATT&CK mapping and basic technique simulation</li>
+                    <li>Python scripting for simple security tools</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TOOLS -->
+<section class="section" id="tools">
+    <div class="panel">
+        <h2 class="section-title">Tools I Use</h2>
+        <p class="section-sub">Common tools and platforms I have used in labs and projects.</p>
+        <div class="tools-grid">
+            <div class="tool-box">Kali Linux</div>
+            <div class="tool-box">Ubuntu</div>
+            <div class="tool-box">Nmap</div>
+            <div class="tool-box">Wireshark</div>
+            <div class="tool-box">Hashcat</div>
+            <div class="tool-box">pfSense</div>
+            <div class="tool-box">iptables</div>
+            <div class="tool-box">Nessus / OpenVAS</div>
+            <div class="tool-box">Apache / WordPress</div>
+            <div class="tool-box">Python 3</div>
+            <div class="tool-box">SSH / Terminal</div>
+            <div class="tool-box">Windows Event Viewer</div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+    <div class="panel">
+        <h2 class="section-title">Cybersecurity Projects</h2>
+        <p class="section-sub">All projects are hands-on and can be opened as separate pages.</p>
+        <div class="grid">
+            <div class="card">
+                <div class="card-title"><a href="projects/nmap.html">Nmap Network Scanning</a></div>
+                <div class="card-tagline">Port scanning, service detection, basic recon.</div>
+            </div>
+            <div class="card">
+                <div class="card-title"><a href="projects/hashcat.html">Hashcat Password Cracking</a></div>
+                <div class="card-tagline">Weak password cracking and hash understanding.</div>
+            </div>
+            <div class="card">
+                <div class="card-title"><a href="projects/steganalysis.html">Steganography Analysis</a></div>
+                <div class="card-tagline">Finding hidden data in images using Steghide.</div>
+            </div>
+            <div class="card">
+                <div class="card-title"><a href="projects/wireshark.html">Wireshark Packet Capture</a></div>
+                <div class="card-tagline">Traffic capture, protocol analysis, filters.</div>
+            </div>
+            <div class="card">
+                <div class="card-title"><a href="projects/webhardening.html">Web Server Hardening</a></div>
+                <div class="card-tagline">Apache, WordPress security, permissions, updates.</div>
+            </div>
+            <div class="card">
+                <div class="card-title"><a href="projects/loganalysis.html">Linux & Windows Log Analysis</a></div>
+                <div class="card-tagline">Failed logins, brute-force patterns, key events.</div>
+            </div>
+            <div class="card">
+                <div class="card-title"><a href="projects/mitre.html">MITRE ATT&CK Simulation</a></div>
+                <div class="card-tagline">Mapping actions to ATT&CK techniques.</div>
+            </div>
+            <div class="card">
+                <div class="card-title"><a href="projects/vulnerability.html">Vulnerability Scanning</a></div>
+                <div class="card-tagline">Running scans and reading CVE-based reports.</div>
+            </div>
+            <div class="card">
+                <div class="card-title"><a href="projects/portscanner.html">Python Port Scanner Tool</a></div>
+                <div class="card-tagline">Custom scanner using Python sockets.</div>
+            </div>
+            <div class="card">
+                <div class="card-title"><a href="projects/firewall.html">Firewall Rules & Traffic Filtering</a></div>
+                <div class="card-tagline">iptables rules, pfSense concepts, allow/deny logic.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+    <div class="panel">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-sub">You can reach me for cybersecurity internships, SOC roles, or related opportunities.</p>
+        <div class="contact-row">
+            <div class="contact-item">
+                <div class="contact-label">Email</div>
+                <div class="contact-value">
+                    <!-- change this to your real email if you want -->
+                    <a href="mailto:your-email@example.com">your-email@example.com</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">GitHub</div>
+                <div class="contact-value">
+                    <!-- change this to your real GitHub profile -->
+                    <a href="https://github.com/manjeetsinghcyber" target="_blank">
+                        github.com/manjeetsinghcyber
+                    </a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">Location</div>
+                <div class="contact-value">
+                    Indianapolis, Indiana, USA
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BACK TO TOP BUTTON -->
+<div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+    ↑
 </div>
 
 <footer>
     © 2025 Manjeet Singh — Cybersecurity Portfolio
 </footer>
 
+<!-- TYPING EFFECT SCRIPT -->
+<script>
+    const words = [
+        "Defending systems.",
+        "Breaking vulnerabilities.",
+        "Learning every day.",
+        "Building blue team skills.",
+        "SOC analyst in progress.",
+        "Cybersecurity is discipline."
+    ];
+
+    let i = 0;
+    let j = 0;
+    let current = "";
+    let isDeleting = false;
+    const typingEl = document.getElementById("typing");
+
+    function typeLoop() {
+        const word = words[i];
+
+        if (!isDeleting) {
+            current = word.slice(0, j + 1);
+            j++;
+            if (j === word.length) {
+                isDeleting = true;
+                setTimeout(typeLoop, 1200);
+                typingEl.innerText = current;
+                return;
+            }
+        } else {
+            current = word.slice(0, j - 1);
+            j--;
+            if (j === 0) {
+                isDeleting = false;
+                i = (i + 1) % words.length;
+            }
+        }
+
+        typingEl.innerText = current;
+        setTimeout(typeLoop, isDeleting ? 40 : 70);
+    }
+
+    typeLoop();
+</script>
+
 </body>
 </html>
+
